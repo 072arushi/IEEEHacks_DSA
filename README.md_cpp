@@ -1,0 +1,48 @@
+ALGORITHM
+
+Insertion of new node to ith position can be done in any ways.
+I  have done this recursively;
+
+Given position at which we want to insert and the data .
+Make a new node .
+
+//BASE CASE :
+
+Now check wheather head is NULL or not if it is NULL and i!=0 then simply return the head.
+    if(head==NULL){
+     return head;
+    }
+
+//Implementation on small part.
+
+Then check if i =0 or not, if i=0 , in that case put address of head in next of new node //addition at head.
+And then point head to newnode as now newnode is head.
+Return head.Input: 
+    if(i==0){
+     newnode->next = head;
+     head=newnode;
+     return head;
+    }
+
+
+//RECURSION CALL
+
+Recursion call on rest of the node 
+insertNode(head->next , i-1 , data) and store it in a node name smallans.
+   Node *smallsans = insertNode(head->next , i-1 , data)
+   
+now start repeating above steps from head->next and now ith position become (i-1) and data to be insert remain same .
+After solving smallans now put address of smallans in next of head so that part on which recusion call is made get attached with head.
+head->next = smallans.
+retutn head.
+
+We get our linked list along with node which we want to insert .
+
+Time Complexity: O(N) where N is the size of the given linked list
+
+Auxiliary Space: O(N) for call stack since using recursion
+
+EXAMPLE:
+Input: list = 1->2->3->4->5->6->7, node = (val=100,next=null), position = 4 (i.e i) 
+Output: 1->2->3->100->4->5->6->7
+
