@@ -1,12 +1,12 @@
 # Algorithm
 
 def bubble_sort(arr):
-  length = len(arr)
-  for i in range(len(arr[:length])):
+  length = len(arr)                                  # finding length of the array
+  for i in range(len(arr[:length])):                 
       for j in range(len(arr) - 1):
-        if arr[j] > arr[j + 1]:
-          arr[j + 1], arr[j] = arr[j], arr[j + 1]
-      length -= 1
+        if arr[j] > arr[j + 1]:                      #comparing adjacent elements
+          arr[j + 1], arr[j] = arr[j], arr[j + 1]    #swapping
+      length -= 1                                    #last elements gets sorted so decrementing length of the array
   return arr
 
 # Driver's Code 
