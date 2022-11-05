@@ -1,0 +1,12 @@
+# linear Search Iterative Approach
+
+def linear_search(key,arr):    # key is the element to be found
+  for i in range(len(arr)):    #iterating through each index
+    if arr[i] == key:          #Comapring each element with key element
+      return "Key Found"
+  return "Key Not Found"
+
+# Driver's Code:
+if __name__ == "__main__":
+  arr = [10,13,16,12,5,2,20]
+  print(linear_search(2,arr))
