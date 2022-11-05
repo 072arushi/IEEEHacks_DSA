@@ -55,10 +55,6 @@ This repository consists of various machine learning projects, and all of the pr
 
 Thanks goes to these Wonderful People. Contributions of any kind are welcome!🚀 
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
 <a href="https://github.com/072arushi/IEEEHacks_DSA/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=072arushi/IEEEHacks_DSA" />
 </a>
