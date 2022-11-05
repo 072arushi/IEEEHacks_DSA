@@ -1,0 +1,18 @@
+# Algorithm
+
+def bubble_sort(arr):
+  length = len(arr)
+  for i in range(len(arr[:length])):
+      for j in range(len(arr) - 1):
+        if arr[j] > arr[j + 1]:
+          arr[j + 1], arr[j] = arr[j], arr[j + 1]
+      length -= 1
+  return arr
+
+# Driver's Code 
+if __name__ == "__main__":
+  arr = [304,242,237,231,120,78,22]
+  bubble_sort(arr)
+  print("Sorted array is:")
+  for i in range(len(arr)):
+      print("%d" % arr[i], end=" ")
