@@ -19,6 +19,18 @@ This repository is contribution friendly :smiley:. If you'd like to add or impro
  * Don't remove previous implementations of algorithms. You can help in improving the current implementation by adding explanations and examples.
  * Beautify and clean up your code for easier reading
  
+ ## Structure of the Projects 📝
+This repository consists of various machine learning projects, and all of the projects must follow a certain template. I wish the contributors will take care of this while contributing in this repository. <br><br>
+*Readme File-* This includes the algorithm and its explanation.
+*Code-* You need to add the full code including th driving code and the code must be well commented.
+
+## 🧮 Workflow
+- Fork the repository
+- Clone your forked repository using terminal or gitbash.
+- Make changes to the cloned repository
+- Add, Commit and Push
+- Then in Github, in your cloned repository find the option to make a pull request
+ 
  ### Note:
  * **Do not make a new issue unless required.**
  * If your PR is closed without any comment, it means that your PR does not meet the above criteria. Make sure your PR is **not Duplicate** and it should be **well-documented**.
