@@ -1,3 +1,6 @@
+#include<iostream>
+using namespace std;
+
 void merge(int *arr1, int size1, int *arr2, int size2, int *ans){
     int i=0,j=0,k=0;
     while(i<size1 && j<size2){
@@ -35,4 +38,26 @@ void mergeSort(int input[], int size){
     for(int i=0;i<=size-1;i++){
         input[i]=merged[i];
     }
+}
+
+int main(){
+    int size;
+    cout<<"Enter the size of the array";
+    cin>>size;
+    int input[size];
+    for(int i=0;i<size;i++){
+        cout<<"Enter the data value";
+        cin>>input[i];
+    }
+
+    // calling the sorting function
+    mergeSort(input,size);
+
+    cout<<endl;
+    //printing the sorted array
+    for(int i=0;i<size;i++){
+        cout<<input[i]<<" ";
+    }
+
+    return 0;
 }
