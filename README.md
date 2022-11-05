@@ -21,8 +21,8 @@ This repository is contribution friendly :smiley:. If you'd like to add or impro
  
  ## Structure of the Projects 📝
 This repository consists of various machine learning projects, and all of the projects must follow a certain template. I wish the contributors will take care of this while contributing in this repository. <br><br>
-*Readme File-* This includes the algorithm and its explanation.
-*Code-* You need to add the full code including th driving code and the code must be well commented.
+ * Readme File- This includes the algorithm and its explanation.
+ * Code- You need to add the full code including th driving code and the code must be well commented.
 
 ## 🧮 Workflow
 - Fork the repository
