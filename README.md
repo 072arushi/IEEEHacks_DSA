@@ -25,6 +25,7 @@ This repository consists of various machine learning projects, and all of the pr
  * Code- You need to add the full code including th driving code and the code must be well commented.
 
 ## 🧮 Workflow
+- Star this repository
 - Fork the repository
 - Clone your forked repository using terminal or gitbash.
 - Make changes to the cloned repository
