@@ -11,8 +11,8 @@
 
 # Let us consider a simple example of an unsorted array where arr = [1,4,2,5,3]
 # The operations performed to sort this algorithm are:
-# 1 2 4 5	3  
-# 1 2 4 3	5  
-# 1 2 3 4	5  
+# 1 2 4 5 3  
+# 1 2 4 3 5  
+# 1 2 3 4 5  
 # The array is sorted 
 
