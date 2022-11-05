@@ -7,11 +7,11 @@ Class Stack
   int top;
   int size;
   
-  Stack(int size)
+  Stack(int n)
   {
-    this->size=size;
-    arr=new int[size];
-    top=-1;
+    this->size=n;
+    arr=new int[n];          //declaring an array dynamically of size=n
+    top=-1;                 //initialising top =-1  as initially the stack is empty
    }
    
    //pushing element
@@ -24,8 +24,8 @@ Class Stack
         }
         else
         {
-            top++;
-            arr[top]=val;
+            top++;                //incrementing top for the desired index
+            arr[top]=val;         //inserting the value into it
         }
     
    }
@@ -39,9 +39,9 @@ Class Stack
               return 0;
         else
         {
-               int removed=arr[top];
+               int removed=arr[top];        //fetching the top element of stack
                   
-               top--;
+               top--;                       //updating the top as upon deletion of an element from stack would shift top backwards by 1 place
                
                return(removed);
               
@@ -70,7 +70,45 @@ Class Stack
      }
      
 };
-     
+
+//driver code
+int main()
+{
+
+    Stack s;
+    s.push(10);               //pushing 10 into stack
+    
+    s.push(20);               //pushing 20  into stack
+    
+    s.push(30);               //pushing 30 into stack
+    
+    //now the stack looks as [10,20,30]
+    
+    int removed= s.pop() ;                            //popping the element 
+    cout<<removed<<" was popped from stack\n";        //30 would be displayed
+    
+    
+    
+    //now the stack looks like [10,20]
+    
+    //print top element of stack after poping
+    int top=s.peek();
+    cout << "Top element is : " <<top << endl;          //20 would be displayed
+    
+    
+    //print all elements in stack :
+    cout <<"Elements present in stack : ";
+    while(!s.isEmpty())
+    {
+        // print top element in stack
+        int ans=s.peek();
+        cout << ans <<" ";
+        // remove top element in stack
+        s.pop();
+    }
+  
+    return 0;
+
      
      
                
