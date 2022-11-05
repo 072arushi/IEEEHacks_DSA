@@ -1,0 +1,35 @@
+#Quick Sort Algorithm in Python:
+
+def quick_sort(arr,left,right):      # left = first element and right = Last but one element
+  if left < right:
+    p = partition(arr,left,right)    #Partioning the array into two parts
+    quick_sort(arr,left,p - 1)       #applying recursive function to partition the left array furthermore
+    quick_sort(arr,p + 1,right)      #applying recursive function to partion the right array furthermore
+  return arr
+
+def partition(arr,left,right):
+  i = left                                  
+  j = right-1
+  # considering the last element as the pivot element.
+  pivot = arr[right]                      
+  while(i < j): 
+    # moving all the less than the pivot element to the left and greater than the pivot to the right.                            
+    while(i < right and arr[i] <= pivot):  
+      i += 1
+    while(j > left and arr[j] >= pivot):
+      j -= 1
+    if i < j:
+      arr[i], arr[j] = arr[j], arr[i]
+  #placing the pivot element in between
+  arr[i], arr[right] = arr[right], arr[i] 
+  return i
+
+#Driver's Code:
+
+if __name__ == "__main__":
+  arr = [22,11,88,66,55,77,33,44]
+  print(quick_sort(arr,0,len(arr) - 1))
+  print("Sorted array is:")
+  for i in range(len(arr)):
+      print("%d" % arr[i], end=" ")
+
