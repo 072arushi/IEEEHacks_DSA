@@ -22,3 +22,4 @@ This repository is contribution friendly :smiley:. If you'd like to add or impro
  ### Note:
  * **Do not make a new issue unless required.**
  * If your PR is closed without any comment, it means that your PR does not meet the above criteria. Make sure your PR is **not Duplicate** and it should be **well-documented**.
+ * Add a readme to your file explaining your code using the algorithm. Also, you need to write the full code including the driver code and add comments in your code too.
