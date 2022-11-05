@@ -1,0 +1,38 @@
+Binary Search Tree (BST)
+
+Introduction
+● These are the specific types of binary trees.
+● These are inspired by the binary search algorithm that elements on the left
+side of a particular element are smaller and greater element in case of the
+right side.
+● Time complexity on insertion, deletion and searching reduces significantly as
+it works on the principle of binary search rather than linear search, as in the
+case of normal binary trees (will discuss it further).
+How is data stored?
+In BSTs, we always insert the node with smaller data towards the left side of the
+compared node and the larger data node as its right child. To be more concise,
+consider the root node of BST to be N, then:
+● Everything lesser than N will be placed in the left subtree.
+● Everything greater than N will be placed in the right subtree.
+
+
+
+
+Construct BST to sorted Linked List:
+
+Problem statement: 
+
+​Given a BST, we have to construct a sorted linked list out of it.
+
+Approach: 
+​As discussed earlier, the inorder traversal of the BST, provides elements
+in a sorted fashion, so while creating the linked list, we will be traversing the tree in
+inorder style.
+● Base case: ​If the root is NULL, it means the head of the linked list is NULL;
+hence we return NULL.
+● Small calculation: ​Left subtree will provide us the head of LL, and the right
+subtree will provide the tail of LL; hence root node will be placed after the LL
+obtained from the left subtree and right LL will be connected after the root.
+● Recursive call: ​Simply call the left subtree, connect the root node to the end
+of it, and then connect the right subtree’s recursive call after root.
+
