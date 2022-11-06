@@ -12,13 +12,13 @@ output:
 7 8 9   */
 //code:
 #include <iostream>
-void print2DArray(int **input, int row, int col) {
+void print2DArray(int **input, int row, int col) {  //initialising function
 int i,j,k=0;
-    for(i=0;i<row;i++)
+    for(i=0;i<row;i++)  //help to move to next row
         
     {  k=0;
-     while(k<row-i){
-        for(j=0;j<col;j++)
+     while(k<row-i){    //help to print row required no. of times
+        for(j=0;j<col;j++)   //help to print the particular row
         {
             cout<<input[i][j]<<" ";
         }
@@ -33,12 +33,12 @@ int main() {
     int row, col;
     cin >> row >> col;
 
-    int **input = new int*[row];
+    int **input = new int*[row];   //dynamic allocation
     for(int i = 0; i < row; i++) {
 	    input[i] = new int[col];
 	    for(int j = 0; j < col; j++) {
-	        cin >> input[i][j];
+	        cin >> input[i][j];   //printing array
 	    }
     }
-    print2DArray(input, row, col);
+    print2DArray(input, row, col);    //calling function
 }
