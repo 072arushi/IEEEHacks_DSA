@@ -7,3 +7,11 @@ While traversing the two possibilities that can occur are:
   1. The fast pointer reaches NULL which implies that there is no loop present.
   2. The two pointers meet at a single node which implies that a loop is present.
   
+Time Complexity: 0(n)
+Space Complexity: 0(1)
+
+This algorithm can further be used in finding the beginning node of the loop
+Step 1: Following the algo we reach a point where both fast and slow node point a the same node (not the beginning node).
+Step 2: Without making any change to the fast pointer, take the slow pointer to the head
+Step 3: Now let both the pointer move with equal steps.
+Step 4: The node where bothe the pointers meet is the required node.
