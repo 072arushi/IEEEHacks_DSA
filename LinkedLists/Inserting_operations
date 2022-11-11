@@ -1,0 +1,76 @@
+# Linked List Insertion Operations
+# Node class
+class Node():
+  # Function to initialize the node object
+
+  def __init__(self,value):
+    # Assign data
+    self.data = value
+    # Initialize address as none
+    self.address = None
+
+
+# Linked List class
+class LinkedList():
+  # Function to initialize the Linked List object
+  def __init__(self):
+    self.head_node = None
+
+  # Function to check if head is empty
+  def is_empty(self):
+    return self.head_node == None       #returns True if head is empty 
+  
+  # Function to insert a new node at the beginning
+  def insert_at_head(self,value):
+    if self.is_empty():               #checking if linkedlist is empty
+      self.head_node = Node(value)
+    new_node = Node(value)   
+    new_node.address = self.head_node  #Make address of new Node as head
+    self.head_node = new_node          #Moving the head to point to new Node
+
+  # Function to insert a new node at a position
+  def insert_at_position(self,value,pos):
+    if self.is_empty():               #checking if linkedlist is empty
+      self.head_node = Node(value)
+    new_node = Node(value)
+    index = 0 
+    val = self.head_node
+    while val:
+      if index + 1 == pos:            #checking if the new node has to be inserted nexxt
+          a = val.address             
+          val.address = new_node      # inserting the new_node
+          new_node.address = a
+          return 
+      else:
+        val = val.address
+        index += 1                   
+
+  # Function to insert a new node at end
+  def insert_at_tail(self,value):
+    if self.is_empty():                 #checking if linkedlist is empty
+      self.head_node = Node(value) 
+    else:
+      val = self.head_node
+      while val.address is not None:    #traversing the list till end 
+        val = val.address
+      val.address = Node(value)         #changing address of last node to none.
+
+  # Traversing the linkedlist to print each element
+  def traversing(self):
+    val = self.head_node
+    while val:
+      print(val.data, end = " -> ")  #printing data in each node
+      val = val.address              #moving to the next node
+    print("None")
+
+#Driver's Code:
+#Driver's Code:
+if __name__=='__main__': 
+    llist = LinkedList()
+    llist.insert_at_tail(7)
+    llist.insert_at_head(1)
+    llist.insert_at_position(4,1)
+    llist.insert_at_head(0)
+    llist.insert_at_tail(8)
+    print("Created linked list is:")
+    llist.traversing()

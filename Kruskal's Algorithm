@@ -1,0 +1,203 @@
+// import required classes and packages  
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
+//create class Edge to create an edge of the graph that implements Comparable interface  
+class Edge implements Comparable<Edge>{
+    //we have taken source,destination and weight
+    int source;
+    int dest;
+    int weight;
+    
+    public int compareTo(Edge o){
+        return this.weight-o.weight;//we have compared the weight 
+    }
+}
+
+public class Solution {
+    
+    public static int findParent(int v,int parent[]){
+        if(parent[v]==v){                     //if the vertex is parent of themselve only the we return vertex
+            return v;
+        }
+        return findParent(parent[v],parent);   // if not then we call recursion to find parent of parent[v]
+    }
+    
+    public static void kruskas(Edge[] input,int n){
+        // using sort() method for sorting the edges  
+        Arrays.sort(input);           //firstly i sorted the array on the basis  of the weight of edge
+        Edge[] output=new Edge[n-1];  // if there is n vertex then we have to take only n-1 vertex from the graph
+        int parent[] =new int[n];     //and one parent array of n size because every vertex will have a parent which is store in this array
+        for(int i=0;i<n;i++){
+            parent[i]=i;              //at starting  every vertex will be parent of themselves only
+        }
+        int count=0;
+        int i=0;
+        while(count!=n-1){            //the  loop will run untill we find the n-1 vertex of minimum weight
+            Edge curredge=input[i];
+            int sourceParent=findParent(curredge.source,parent);   //we have call the find parent function to find the source parent
+            int destParent=findParent(curredge.dest,parent);       //we have call the find parent function to find the dest parent
+            if(sourceParent!=destParent){                          //if source parent is different with dest parent means there is no cycle so we consider this vertex
+                output[count]=curredge;                            // added it in the output array
+                count++;
+                parent[sourceParent]=destParent;                   // and here we are updating the parent 
+            }
+            i++;
+        }
+        for(int j=0;j<n-1;j++){
+            if(output[j].source<output[j].dest){                   //if output[j].source<output[j].dest then we are first printing the source then dest then weight
+                System.out.println(output[j].source+" "+output[j].dest+" "+output[j].weight);
+            }else{
+                System.out.println(output[j].dest+" "+output[j].source+" "+output[j].weight);
+            }
+        }
+    }
+
+	public static void main(String[] args) {
+        //we have taken an undirected, connected and weighted graph G(n, e) with n number of vertices (which are numbered from 0 to n-1) and e number of edges.
+        //and we will try to find and print the Minimum Spanning tree (MST) using Kruskal's algorithm.
+
+        /*
+        Sample Input 1 :
+        4 4
+        0 1 3
+        0 3 5
+        1 2 1
+        2 3 8
+
+        Sample Output 1 :
+        1 2 1
+        0 1 3
+        0 3 5
+
+        */
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();    // no of vertices
+		int e = sc.nextInt();    // no of edges
+
+        Edge [] input=new Edge[e];     // array of Edge size  and of  edge type which contain source ,destination and weight
+        for(int i=0;i<e;i++){
+            input[i] = new Edge();
+            input[i].source=sc.nextInt();     //source
+            input[i].dest=sc.nextInt();       //destination
+            input[i].weight=sc.nextInt();    //this will be the weight of that edge between the source and destination
+            
+        }
+        kruskas(input,n);                   // we have called the kruskas function with input array and vertices
+        
+	}
+}
+
+
+
+
+
+
+
+
+
+
+Kruskal's Algorithm
+
+Kruskal's algorithm is a minimum spanning tree algorithm that takes a graph as input and finds the subset of the edges of that graph which
+
+form a tree that includes every vertex
+has the minimum sum of weights among all the trees that can be formed from the graph
+
+Kruskal algorithm is another most important algorithm used for Minimum Spanning Tree. MST is a spanning tree having a weight less than or equal to the weight of every spanning tree.
+
+Kruskal algorithm in Java takes a connected and undirected graph and returns the Minimum Spanning Tree of it. The given diagram defines the working of Kruskal's algorithm.
+
+It falls under a class of algorithms called greedy algorithms that find the local optimum in the hopes of finding a global optimum.
+
+These are the following steps that we use to implement Kruskal's algorithm:
+
+Take connected and undirected graph from the user.
+We then sort all the edges from low weight to high weight.
+//Arrays.sort(input);
+
+Take the edge with the lowest weight and add it to the spanning tree. If adding the edge created a cycle, then reject this edge.
+//if(sourceParent!=destParent){                         //if source parent is different with dest parent means there is no cycle so we consider this vertex
+     //output[count]=curredge;                          // added it in the output array
+     //count++;
+     //parent[sourceParent]=destParent;                 // and here we are updating the parent 
+ //}
+Keep adding edges until we reach all vertices.
+
+Above implemented code of Kruskal's algorithm in Java
+is based on above-discussed steps.
+
+findParent function is used to find the parent of vertex so that if the parent of two vertex is same so there will be cycle so we will neglect that
+
+Sample Input 1 :
+4 4
+0 1 3
+0 3 5
+1 2 1
+2 3 8
+Sample Output 1 :
+1 2 1
+0 1 3
+0 3 5
+
+
+Sample Input 2 :
+3 3
+1 2 6
+2 0 2
+1 0 2
+Sample Output 2 :
+0 2 2
+0 1 2
+
+
+Sample Input 3 :
+4 4
+1 2 6
+2 3 2
+1 3 2
+1 0 2
+Sample Output 3 :
+2 3 2
+1 3 2
+0 1 2
+
+
+
+Example of Kruskal's algorithm
+
+STEP 1
+https://cdn.programiz.com/sites/tutorial2program/files/ka-1.png
+Start with a weighted graph
+
+STEP 2
+https://cdn.programiz.com/sites/tutorial2program/files/ka-2.png
+Choose the edge with the least weight, if there are more than 1, choose anyone
+
+STEP 3
+https://cdn.programiz.com/sites/tutorial2program/files/ka-3.png
+Choose the next shortest edge and add it
+
+STEP 4
+https://cdn.programiz.com/sites/tutorial2program/files/ka-4.png
+Choose the next shortest edge that doesn't create a cycle and add it
+
+STEP 5
+https://cdn.programiz.com/sites/tutorial2program/files/ka-5.png
+Choose the next shortest edge that doesn't create a cycle and add it
+
+STEP 6
+https://cdn.programiz.com/sites/tutorial2program/files/ka-6.png
+Repeat until you have a spanning tree
+
+
+Kruskal's Algorithm Complexity
+The time complexity Of Kruskal's Algorithm is: O(E log E).
+
+Kruskal's Algorithm Applications
+In order to layout electrical wiring
+In computer network (LAN connection)
+
+
