@@ -1,0 +1,113 @@
+// import required classes and packages  
+import java.util.*;
+
+public class Solution {
+    public static void connected(int[][] edges,boolean[] visited,ArrayList<Integer> arr,int sv){
+        visited[sv]=true;        // firstly we mark it visited and then we add it in the arraylist
+        arr.add(sv);
+        for(int i=0;i<edges.length;i++){
+            if(edges[sv][i]==1 && !visited[i]){       // if there is edge between the vertex and it is not visited yet then we will call recursion on connected
+                connected(edges,visited,arr,i);
+             }
+        }
+    }
+    public static void help(int[][] edges){
+        boolean visited[]= new boolean[edges.length];         // we have made a visited array of boolean type to ensure that if we already visited the vertes then don't go again
+        for(int i=0;i<edges.length;i++){
+            if(!visited[i]){                    // in this case if the graph is disconnected then if it is not visited then go ahead
+                ArrayList<Integer> array=new ArrayList<Integer>();
+                connected(edges,visited,array,i);        // we called the connected function which will fill the arraylist if it is not visited
+                Collections.sort(array);                 // after getting the arraylist i have sorted the array
+                for(int j=0;j<array.size();j++){
+                    System.out.print(array.get(j)+" ");  // printed the arraylist with the help of loop
+                }
+                System.out.println();
+            }
+        }
+    }
+
+	public static void main(String[] args)  {
+        //We have an undirected graph G(n,e), find and print all the connected components of the given graph G.
+        /*
+        Note:
+         1. n is the number of vertices present in graph G and vertices are numbered from 0 to n-1. 
+         2. e is the number of edges present in graph G.
+         3. You need to take input in main and create a function which should return all the connected components. And then print them in the main, not inside function.
+        */
+        
+        int n;         // no of vertices
+        int e;         // no of edges
+        Scanner sc=new Scanner(System.in);
+        n=sc.nextInt();
+        e=sc.nextInt();
+        int edges[][]=new int[n][n];          // 2D array of vertex size  and of int type ,this array will store 1 if there will be edge between vertex
+        for(int i=0;i<e;i++){
+            int fv=sc.nextInt();              
+            int sv=sc.nextInt();
+            edges[fv][sv]=1;                  // Store 1 if there is edge between the vertex
+            edges[sv][fv]=1;
+        }
+        help(edges);                          // we called a help function with edge
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+Algorithm for all the connected components of the given graph G.
+
+A set of vertices in a graph that are linked to each other by paths
+A connected component or simply component of an undirected graph is a subgraph in which each pair of nodes is connected with each other via a path.
+In connected components, all the nodes are always reachable from each other.
+
+One Connected Component
+https://www.baeldung.com/wp-content/uploads/sites/4/2020/05/1-component-1.png
+
+More Than One Connected Component
+https://www.baeldung.com/wp-content/uploads/sites/4/2020/05/3-component.png
+
+
+Given an undirected graph G(n,e), find and print all the connected components of the given graph G.
+Note:
+1. n is the number of vertices present in graph G and vertices are numbered from 0 to n-1. 
+2. e is the number of edges present in graph G.
+3. You need to take input in main and create a function which should return all the connected components. And then print them in the main, not inside function.
+Print different components in new line. And each component should be printed in increasing order (separated by space). Order of different components doesn't matter.
+
+In the connected function, firstly we will mark it visited then we add it the arraylist and if there is the edge between the vertex and it is not visited then we call recursion on connected function
+
+Sample Input 1:
+4 2
+0 1
+2 3
+Sample Output 1:
+0 1 
+2 3 
+
+Sample Input 2:
+4 3
+0 1
+1 3 
+0 3
+Sample Output 2:
+0 1 3 
+2
+
+Sample Input 3:
+2 1
+0 1
+Sample Output 3:
+0 
+
+Initialize all vertices as not visited.
+Do the following for every vertex v:
+If v is not visited before, call the Connected Function and and add it in arraylist.
+Mark v as visited and add it in arraylist.
+For every adjacent u of v, If u is not visited, then recursively call the connected.
