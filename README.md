@@ -1,4 +1,4 @@
-# IEEEHacks_DSA
+# Hacks_DSA
 
 <div align="center">
 
